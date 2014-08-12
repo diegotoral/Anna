@@ -1,0 +1,9 @@
+# -*- coding: utf-8 -*-
+# encoding: utf-8
+
+
+def build(bld):
+    """
+    Build the tests sources.
+    """
+    pass
