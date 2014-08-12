@@ -30,3 +30,18 @@ def build(bld):
     Build the project into a binary.
     """
     pass
+
+
+def test(ctx):
+    """
+    Build and run the tests.
+    """
+    import waflib.Context
+
+    ctx.recurse('test', name='build')
+    ctx.cmd_and_log(
+        'build/test\n',
+        shell=True,
+        output=waflib.Context.STDOUT,
+        quiet=waflib.Context.BOTH
+    )
