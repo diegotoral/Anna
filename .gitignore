@@ -25,3 +25,4 @@
 # Waf
 .waf-1.7.11-*
 .lock-waf_*
+build/
