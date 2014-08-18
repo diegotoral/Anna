@@ -41,12 +41,27 @@ Linhas físicas são sequências de caracteres terminados por um marcador de fim
 
 #### União de linhas ####
 
-Duas ou mais `linhas físicas` podem ser unidas em `linhas lógicas` utilizando o caractere `\`, como no exemplo:
+As linhas de um programa podem ser unidas explicitamente ou implicitamente.
+
+
+##### União explícita de linhas #####
+
+Duas ou mais `linhas físicas` podem ser unidas explicitamente em `linhas lógicas` utilizando o caractere `\`, como no exemplo:
 
 ```
 if foo == 123 and bar == 321 \
    and foo_bar == 231:
     return 1
+```
+
+
+##### União implícita de linhas #####
+
+Expressões entre parenteses, colchetes ou chaves podem ser separados em múltiplas linhas sem o uso do caractere `\`, como no exemplo:
+
+```
+fruits = ['Apple', 'Orange', 'Banana', 'Lemon'
+          'Blueberry', 'Grape', 'Strawberry']
 ```
 
 
@@ -127,6 +142,8 @@ Literais strgins são sequências de caracteres representando uma constante stri
 ### Constantes ###
 
 Existem constantes de diferentes tipos, constantes booleanas, constantes inteiras, constantes de ponto flutuante e constantes string.
+
+Um valor constante é representado por um literal inteiro, ponto flutuante, ou string, um identificador, uma expressão constante, uma conversão cujo resultado é uma constante ou o resultado de alguma função `built-in`.
 
 
 ### Tipos ###
