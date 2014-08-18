@@ -45,7 +45,7 @@ Duas ou mais `linhas físicas` podem ser unidas em `linhas lógicas` utilizando 
 
 ```
 if foo == 123 and bar == 321 \
-   foo_bar == 231:
+   and foo_bar == 231:
     return 1
 ```
 
@@ -83,6 +83,7 @@ As palavras seguintes são reservadas para a linguagem e não podem ser usadas c
     return      else      pass      for      try
     if          loop      exit      del      until
     class       or        and       in       not
+    true        false     null      elif
 
 
 ### Operadores e Delimitadores ###
@@ -91,6 +92,7 @@ As sequências de caracteres seguinte representam operadores, delimitadores e ou
 
     +      -      +=      -=      *
     /      *=      /=     (       )
+    [      ]      ,       %
 
 
 ### Literais inteiros ###
@@ -98,9 +100,9 @@ As sequências de caracteres seguinte representam operadores, delimitadores e ou
 Um literal inteiro é uma sequência de dígitos representando uma contante inteira. Um prefixo opicional define a base do literal: 0 para octal e 0x ou 0X para hexadecimal. Literais hexadecimais suportam as letras a-f e A-F para representar valores de 10 à 15.
 
     int_literal     = decimal_literal | octal_literal | hex_literal
-    decimal_literal = ( "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ) { decimal_digit }
-    octal_literal   = "0" { octal_digit }
-    hex_literal     = "0" ( "x" | "X" ) hex_digit { hex_digit }
+    decimal_literal = ( "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ) ( decimal_digit )*
+    octal_literal   = "0" ( octal_digit )*
+    hex_literal     = "0" ( "x" | "X" ) hex_digit ( hex_digit )*
 
 
 ### Literais ponto flutuante ###
@@ -108,7 +110,7 @@ Um literal inteiro é uma sequência de dígitos representando uma contante inte
 Literal ponto flutuante é uma sequência de dígitos representando uma constante de ponto flutuante. Possui uma parte inteira, um ponto decimal, e outra parte fracionária. Tanto a parte inteira quanto a fracionária, são compostas de dígitos decimais.
 
     float_literal = decimals "." [decimals] | "." decimals
-    decimals      = decimal_digit { decimal_digit }
+    decimals      = decimal_digit ( decimal_digit )*
 
 *Todo* Expoentes
 
@@ -124,8 +126,13 @@ Literais strgins são sequências de caracteres representando uma constante stri
 
 ### Constantes ###
 
+Existem constantes de diferentes tipos, constantes booleanas, constantes inteiras, constantes de ponto flutuante e constantes string.
+
 
 ### Tipos ###
+
+Um tipo determina um conjunto de valores e operações específicas para valores daquele tipo.
+
 
 #### Tipos booleano ####
 
