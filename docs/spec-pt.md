@@ -15,16 +15,45 @@ A sintaxe é especificada usando uma notação modificada da [Extended Backus-Na
     letter = "a" | "e" | "i" | "o" | "u"
     digit  = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 
-Na primeira linha do exemplo, temos que `name` é um `letter` seguido por uma sequência de zero ou mais `letter`, `digit` ou ainda do caractere `_`. Por sua vez, um `letter` pode se tornar um dos caracteres 'a', 'e', 'i', 'o' ou 'u'. De maneira análoga, `digit` pode assumir os valores numéricos de 0 até 9.
+Na primeira linha do exemplo, temos que `name` é um `letter` seguido por uma sequência de zero ou mais `letter`, `digit` ou ainda do caractere `_`. Por sua vez, um `letter` pode se tornar um dos caracteres a, e, i, o ou u. De maneira análoga, `digit` pode assumir os valores numéricos de 0 até 9.
 
 Cada regra inicia com um nome, o qual é seguido pelo simbolo `=`. Uma barra vertial (`|`) é usada para separar alternativas. A estrela (`*`) significa zero ou mais repetições do item precedente. De maneira análoga, o símbolo plus (`+`) denota uma ou mais repetições do item ao qual se refere. Qualquer valor entre colchetes (`[ ]`) é considerado opcional, significando que zero ou uma ocorrências do item podem aparecer. Parenteses são usados para agrupar, enquanto strings literais estão contidas entre aspas (`"`).
 
 
 ## Elementos léxicos ##
 
-### Caracteres ###
+### Estrutura de linha ###
+
+Um programa é dividido em uma série de `linhas lógicas`.
+
+
+#### Linhas lógicas ####
+
+O fim de uma linha lógica é representado pelo token `newline`. Uma linha lógica é formada de uma ou mais `linhas físicas`.
 
     newline = '\n'
+
+
+#### Linhas físicas ####
+
+Linhas físicas são sequências de caracteres terminados por um marcador de fim de linha.
+
+
+#### União de linhas ####
+
+Duas ou mais `linhas físicas` podem ser unidas em `linhas lógicas` utilizando o caractere `\`, como no exemplo:
+
+```
+if foo == 123 and bar == 321 \
+   foo_bar == 231:
+    return 1
+```
+
+
+### Comentários ###
+
+Existe apenas uma forma de comentário, o comentário de uma linha, iniciado pelo caractere # e que termina ao fim da linha. Qualquer comentário atua como uma nova linha.
+
 
 ### Letras e Dígitos ###
 
@@ -40,16 +69,11 @@ O caractere _ é considerado uma letra.
                     | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "_"
 
 
-### Comentários ###
-
-Existe apenas uma forma de comentário, o comentário de uma linha, iniciado pelo caractere # e que termina ao fim da linha. Qualquer comentário atua como uma nova linha.
-
-
 ### Identificadores ###
 
 Identificadores nomeam entidades de um programa, tais como variáveis e tipos. Um identificador é uma sequência de uma ou mais letras e dígitos. O primeiro caratere de um identificador deve, obrigatoriamente, ser uma letra.
 
-    identifier = letter { letter | decimal_digit }
+    identifier = letter ( letter | decimal_digit )*
 
 
 ### Palavras reservadas (Keywords) ###
