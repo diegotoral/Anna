@@ -45,6 +45,14 @@ Identificadores nomeam entidades de um programa, tais como variáveis e tipos. U
 
     identifier = letter { letter | decimal_digit }
 
+#### Exemplos ####
+
+    a
+    _foo
+    bar123
+    _foo_bar
+    FoObAr
+
 
 ### Palavras reservadas (Keywords) ###
 
