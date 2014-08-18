@@ -25,13 +25,13 @@ A sintaxe é especificada usando a Extended Backus-Naur Form (EBNF):
 O caractere _ é considerado uma letra.
 
     decimal_digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
-    octal_digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7"
-    hex_digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "A" | "B"
-                | "C" | "D" | "E" | "F" | "a" | "b" | "c" | "d" | "e" | "f"
-    letter = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M"
-             | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
-             | "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m"
-             | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "_"
+    octal_digit   = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7"
+    hex_digit     = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "A" | "B" | "C"
+                    | "D" | "E" | "F" | "a" | "b" | "c" | "d" | "e" | "f"
+    letter        = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M"
+                    | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+                    | "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m"
+                    | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "_"
 
 
 ### Comentários ###
@@ -63,14 +63,14 @@ As sequências de caracteres seguinte representam operadores, delimitadores e ou
     /      *=      /=     (       )
 
 
-### Inteiros literais ###
+### Literais inteiros ###
 
-Um inteiro literal é uma sequência de dígitos representando uma contante inteira. Um prefixo opicional define a base do literal: 0 para octal e 0x ou 0X para hexadecimal. Literais hexadecimais suportam as letras a-f e A-F para representar valores de 10 à 15.
+Um literal inteiro é uma sequência de dígitos representando uma contante inteira. Um prefixo opicional define a base do literal: 0 para octal e 0x ou 0X para hexadecimal. Literais hexadecimais suportam as letras a-f e A-F para representar valores de 10 à 15.
 
-    int_literal = decimal_literal | octal_literal | hex_literal
+    int_literal     = decimal_literal | octal_literal | hex_literal
     decimal_literal = ( "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ) { decimal_digit }
-    octal_literal = "0" { octal_digit }
-    hex_literal = "0" ( "x" | "X" ) hex_digit { hex_digit }
+    octal_literal   = "0" { octal_digit }
+    hex_literal     = "0" ( "x" | "X" ) hex_digit { hex_digit }
 
 
 ### Literais ponto flutuante ###
@@ -78,11 +78,18 @@ Um inteiro literal é uma sequência de dígitos representando uma contante inte
 Literal ponto flutuante é uma sequência de dígitos representando uma constante de ponto flutuante. Possui uma parte inteira, um ponto decimal, e outra parte fracionária. Tanto a parte inteira quanto a fracionária, são compostas de dígitos decimais.
 
     float_literal = decimals "." [decimals] | "." decimals
-    decimals = decimal_digit { decimal_digit }
+    decimals      = decimal_digit { decimal_digit }
 
 *Todo* Expoentes
 
-### Strings literais ###
+
+### Literais strings ###
+
+Literais strgins são sequências de caracteres representando uma constante string.
+
+    string_literal        = single_quoted_literal | double_quoted_literal
+    single_quoted_literal = "'" {} "'"
+    double_quoted_literal = '"' {} '"'
 
 
 ### Constantes ###
@@ -100,3 +107,15 @@ Literal ponto flutuante é uma sequência de dígitos representando uma constant
 
 
 #### Tipos array ####
+
+
+#### Tipos funções ####
+
+
+### Blocos ###
+
+
+### Declarações e escopo ###
+
+
+### Expressões ###
