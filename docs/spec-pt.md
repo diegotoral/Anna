@@ -1,7 +1,7 @@
 # Anna Specification
 
 
-## Introduction ##
+## Introdução ##
 
 Este é o manual de referência para a linguagem de programação Anna.
 
@@ -14,7 +14,13 @@ A sintaxe é especificada usando a Extended Backus-Naur Form (EBNF):
     *TODO* Adicionar notação EBNF usada
 
 
-## Letras e Dígitos ##
+## Elementos léxicos ##
+
+### Caracteres ###
+
+    newline = '\n'
+
+### Letras e Dígitos ###
 
 O caractere _ é considerado uma letra.
 
@@ -28,8 +34,6 @@ O caractere _ é considerado uma letra.
              | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "_"
 
 
-## Elementos léxicos ##
-
 ### Comentários ###
 
 Existe apenas uma forma de comentário, o comentário de uma linha, iniciado pelo caractere # e que termina ao fim da linha. Qualquer comentário atua como uma nova linha.
@@ -37,14 +41,14 @@ Existe apenas uma forma de comentário, o comentário de uma linha, iniciado pel
 
 ### Identificadores ###
 
-Identificadores nomeam entidades de um programa, tais como variáveis e tipos. Um identificador é uma sequência de uma ou mais letras e dígitos. O primeiro caratere de um identificador deve, obrigatóriamente, ser uma letra.
+Identificadores nomeam entidades de um programa, tais como variáveis e tipos. Um identificador é uma sequência de uma ou mais letras e dígitos. O primeiro caratere de um identificador deve, obrigatoriamente, ser uma letra.
 
-    identifier = letter { letter | digit }
+    identifier = letter { letter | decimal_digit }
 
 
 ### Palavras reservadas (Keywords) ###
 
-A palavras seguintes são reservadas para a linguagem e não podem ser usadas como identificadores.
+As palavras seguintes são reservadas para a linguagem e não podem ser usadas como identificadores.
 
     return      else      pass      for      try
     if          loop      exit      del      until
@@ -61,9 +65,22 @@ As sequências de caracteres seguinte representam operadores, delimitadores e ou
 
 ### Inteiros literais ###
 
+Um inteiro literal é uma sequência de dígitos representando uma contante inteira. Um prefixo opicional define a base do literal: 0 para octal e 0x ou 0X para hexadecimal. Literais hexadecimais suportam as letras a-f e A-F para representar valores de 10 à 15.
 
-### Ponto flutuante literais ###
+    int_literal = decimal_literal | octal_literal | hex_literal
+    decimal_literal = ( "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ) { decimal_digit }
+    octal_literal = "0" { octal_digit }
+    hex_literal = "0" ( "x" | "X" ) hex_digit { hex_digit }
 
+
+### Literais ponto flutuante ###
+
+Literal ponto flutuante é uma sequência de dígitos representando uma constante de ponto flutuante. Possui uma parte inteira, um ponto decimal, e outra parte fracionária. Tanto a parte inteira quanto a fracionária, são compostas de dígitos decimais.
+
+    float_literal = decimals "." [decimals] | "." decimals
+    decimals = decimal_digit { decimal_digit }
+
+*Todo* Expoentes
 
 ### Strings literais ###
 
