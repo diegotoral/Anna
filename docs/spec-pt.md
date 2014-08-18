@@ -9,9 +9,14 @@ Anna é uma linugagem de propósito geral, projetada para ser simples de escreve
 
 ## Notação ##
 
-A sintaxe é especificada usando a Extended Backus-Naur Form (EBNF):
+A sintaxe é especificada usando uma notação modificada da [Extended Backus-Naur Form](http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form) (EBNF) e usa o estilo seguinte para as definições:
 
-    *TODO* Adicionar notação EBNF usada
+    name = letter { letter }
+    letter = "a" | "e" | "i" | "o" | "u"
+
+Na primeira linha do exemplo, temos que `name` é um `letter` seguido por uma sequência de zero ou mais `letter`. Por sua vez, um `letter` pode se tornar um dos caracteres 'a', 'e', 'i', 'o' ou 'u'.
+
+Cada regra inicia com um nome, o qual é seguido pelo simbolo `=`. Uma barra vertial (`|`) é usada para separar alternativas. A estrela (`*`) significa zero ou mais repetições do item precedente, de maneira análoga, o símbolo plus (`+`) denota uma ou mais repetições do item. Qualquer valor entre brackets (`[ ]`) é considerado opcional, significando que zero ou uma ocorrencias do valor podem aparecer. Parenteses são usados para agrupar, enquanto strings literais estão contidas entre aspas.
 
 
 ## Elementos léxicos ##
