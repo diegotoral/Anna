@@ -1,4 +1,4 @@
-# Anna Programming Language Specification
+# Anna Specification
 
 
 ## Introduction ##
@@ -59,26 +59,27 @@ As sequências de caracteres seguinte representam operadores, delimitadores e ou
     /      *=      /=     (       )
 
 
-### Integer literals ###
+### Inteiros literais ###
 
 
-### Floating-point literals ###
+### Ponto flutuante literais ###
 
 
-### String literals ###
+### Strings literais ###
 
 
-### Constants ###
+### Constantes ###
 
 
-### Types ###
+### Tipos ###
 
-#### Boolean types ####
+#### Tipos booleano ####
 
-#### Numeric types ####
 
-#### String types ####
+#### Tipos numéricos ####
 
-#### Array types ####
 
-#### Pointer types ####
+#### Tipos string ####
+
+
+#### Tipos array ####
