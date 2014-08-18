@@ -67,12 +67,19 @@ fruits = ['Apple', 'Orange', 'Banana', 'Lemon'
 
 ### Comentários ###
 
-Existe apenas uma forma de comentário, o comentário de uma linha, iniciado pelo caractere # e que termina ao fim da linha. Qualquer comentário atua como uma nova linha.
+Existe apenas uma forma de comentário, o comentário de uma linha, iniciado pelo caractere `#` e que termina ao fim da linha. Qualquer comentário atua como uma nova linha.
+
+
+### Indentação ###
+
+Os espaços em branco (e tabs) no começo de uma linha lógica, são usados para determinar o nível de indentação da linha, o que, por sua vez, determina o agrupamento das declarações.
+
+A indentação de um grupo de declarações não pode ser divida em várias linhas físicas utilizando o caractere `\`.
 
 
 ### Letras e Dígitos ###
 
-O caractere _ é considerado uma letra.
+O caractere `_` é considerado uma letra.
 
     decimal_digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
     octal_digit   = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7"
@@ -103,7 +110,7 @@ As palavras seguintes são reservadas para a linguagem e não podem ser usadas c
 
 ### Operadores e Delimitadores ###
 
-As sequências de caracteres seguinte representam operadores, delimitadores e outros tokens da linguagem:
+As sequências de caracteres seguinte representam operadores, delimitadores e outros tokens da linguagem.
 
     +      -      +=      -=      *
     /      *=      /=     (       )
